@@ -12,6 +12,7 @@
     "@types/node": "20.4.8",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
+    "@types/tinycolor2": "^1.4.3",
     "axios": "^1.4.0",
     "dayjs": "^1.11.7",
     "eslint": "8.46.0",
@@ -24,8 +25,10 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
+    "react-query": "^3.39.3",
     "rooks": "^7.10.0",
     "styled-components": "^6.0.7",
+    "tinycolor2": "^1.6.0",
     "typescript": "5.1.6",
     "zod": "^3.21.4"
   }

@@ -1,5 +1,6 @@
 import Box, { BoxProps } from "@/components/Auxilary/Box";
-import styled, { CSSProperties } from "styled-components";
+import { CSSProperties } from "react";
+import styled from "styled-components";
 
 type GridProps = BoxProps & {
   templateColumns?: CSSProperties["gridTemplateColumns"];
@@ -9,7 +10,7 @@ type GridProps = BoxProps & {
   gap?: CSSProperties["gap"];
 };
 
-const Grid = styled(Box)<GridProps>`
+const Grid = styled(Box) <GridProps>`
   display: grid;
   grid-template-columns: ${({ templateColumns }) => templateColumns};
   grid-template-rows: ${({ templateRows }) => templateRows};

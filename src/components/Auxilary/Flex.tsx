@@ -1,4 +1,5 @@
-import styled, { CSSProperties } from "styled-components";
+import { CSSProperties } from "react";
+import styled from "styled-components";
 import Box, { BoxProps } from "./Box";
 
 export type FlexProps = BoxProps & {
@@ -9,7 +10,7 @@ export type FlexProps = BoxProps & {
   gap?: CSSProperties["gap"];
 };
 
-const Flex = styled(Box)<FlexProps>`
+const Flex = styled(Box) <FlexProps>`
   display: flex;
   flex-direction: ${({ dir = "row" }) => dir};
   justify-content: ${({ justify = "flex-start" }) => justify};

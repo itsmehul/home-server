@@ -1,13 +1,11 @@
 import { Box, Flex } from "@/components/Auxilary";
-import { pages, profileAtom } from "@/utils/constants";
+import { pages } from "@/utils/constants";
 import { AnimatePresence, motion, useWillChange } from "framer-motion";
-import { useAtomValue } from "jotai";
 import { useRouter } from "next/router";
 import React from "react";
 import { useTheme } from "styled-components";
 
 const BottomNavigation = () => {
-  const profile = useAtomValue(profileAtom);
 
   return (
     <Box h="70px" invert w="100%">
@@ -19,7 +17,7 @@ const BottomNavigation = () => {
         m="auto"
         h="100%"
       >
-        {pages[Number(!!profile) as keyof typeof pages].map((page) => (
+        {pages[1].map((page) => (
           <NavButton
             key={page.pathname}
             pathname={page.pathname}
@@ -61,7 +59,7 @@ const AnimatedIcon = ({ isActive, icon }: IconProps) => {
             animate={{ scale: 1.1 }}
             exit={{ scale: 1 }}
             transition={{ duration: 0.2 }}
-            style={{willChange}}
+            style={{ willChange }}
           >
             {Icon}
           </motion.div>

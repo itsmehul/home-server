@@ -1,8 +1,15 @@
-import { Text } from '@/components/Auxilary'
+import { Flex, Text } from '@/components/Auxilary'
 import Head from 'next/head'
+import { useQuery } from 'react-query'
 
 
 export default function Home() {
+  const { data } = useQuery('files', async () => {
+    const res = await fetch('/api/files')
+    const data = await res.json()
+    return data
+  })
+
   return (
     <>
       <Head>
@@ -12,7 +19,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        <Text>Hello</Text>
+        <Text>Files</Text>
+        <Flex dir='column'>
+          {
+            data?.map((file: any) => {
+              return (
+                <Flex gap='1em' dir='column' key={file.fileName}>
+                  <Flex gap='1em'>
+                    <Text weight='bold' key={file.id}>{file.fileName}</Text>
+                    <Text key={file.id}>{file.createdAt}</Text>
+                    <Text key={file.id}>{file.size}</Text>
+                  </Flex>
+                  <video width="320" height="240" controls>
+                    <source src={`/videos/${file.fileName}`} type="video/mp4" />
+                  </video>
+                </Flex>
+              )
+            })
+          }
+        </Flex>
+
       </main>
     </>
   )

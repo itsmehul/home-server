@@ -1,5 +1,6 @@
 import Box, { BoxProps } from "@/components/Auxilary/Box";
-import styled, { CSSProperties } from "styled-components";
+import { CSSProperties } from "react";
+import styled from "styled-components";
 
 type TextProps = BoxProps & {
   size?: CSSProperties["fontSize"];
@@ -10,7 +11,7 @@ type TextProps = BoxProps & {
 
 const Text = styled(Box).attrs<TextProps>(() => ({
   as: "p",
-}))<TextProps>`
+})) <TextProps>`
   font-size: ${(props) => props.size || "16px"};
   font-weight: ${(props) => props.weight || "normal"};
   text-transform: ${(props) => (props.capitalize ? "capitalize" : "none")};
